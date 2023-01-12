@@ -11,4 +11,9 @@
   {{!-- <p>
     <button class="btn btn-primary">Fund this Blog!</button>
   </p> --}}
+  {{#if logged_in}}
+  <textarea id="comment"></textarea>
+  <button class="commentBtn" id="commentBtn">Comment</button>
 </div>
+{{/if}}
+<script src="/js/comment.js"></script>

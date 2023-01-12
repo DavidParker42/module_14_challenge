@@ -10,7 +10,7 @@ const Comment = require('./Comment');
 Blog.belongsTo(User, {
   foreignKey: 'user_id',
 });
-// comment not being recognized
+
 Blog.hasMany(Comment, {
   foreignKey: 'blog_id'
 });
