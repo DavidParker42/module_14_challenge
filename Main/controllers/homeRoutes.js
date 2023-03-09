@@ -41,14 +41,12 @@ router.get('/blog/:id', async (req, res) => {
     });
 
     const blog = blogData.get({ plain: true });
-    console.log(blog);
-
+      console.log(blog);
     res.render('blog', {
       ...blog,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -57,18 +55,21 @@ router.get('/blog/:id', async (req, res) => {
 router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Blog }],
+    const userData = await Blog.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
+      // attributes: { exclude: ['password'] },
+      // include: [{ model: "blog" }],
     });
 
-    const user = userData.get({ plain: true });
-
+    const blogs = userData.map(blog => blog.get({ plain: true }));
     res.render('profile', {
-      ...user,
+      blogs,
       logged_in: true
     });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });

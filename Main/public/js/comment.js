@@ -3,12 +3,13 @@ const commentHandler = async (event) => {
 
   // Collect values from the login form
   const body = document.querySelector('#comment').value.trim();
+  const blog_id = document.querySelector('textarea').dataset.id;
 
   if (comment) {
     // Send a POST request to the API endpoint
     const response = await fetch('/api/comments', {
       method: 'POST',
-      body: JSON.stringify({ body }),
+      body: JSON.stringify({ body, blog_id: blog_id }),
       headers: { 'Content-Type': 'application/json' },
     });
 
