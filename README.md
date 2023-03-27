@@ -5,7 +5,7 @@
   ## Table of Contents
   1. [Description](#description)
   2. [Email](#email)
-  3. Funtioning Link
+  3. [Github](#github)
 
   ## Description
 CMS-style blog site similar where developers can publish their blog posts and comment on other developers’ posts as well.
@@ -14,3 +14,6 @@ CMS-style blog site similar where developers can publish their blog posts and co
 
   ## Email
   david.m.parker92@gmail.com
+
+  ## Github repository link
+  https://github.com/DavidParker42/module_14_challenge
